@@ -1,0 +1,13 @@
+body {
+  border: 1em;
+  border-color: aquamarine;
+}
+#container {
+  border: 1em;
+  border-color: black;
+}
+
+div {
+  border: 1em;
+  border-color: blueviolet;
+}
