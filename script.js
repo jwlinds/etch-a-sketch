@@ -1,15 +1,24 @@
 const container = document.querySelector('#container');
-let box;
+const reset = document.querySelector('#reset');
 
-let size = 16
+function setGridSize(size) {
+    container.style.gridTemplateColumns = (`repeat(${size}, 1fr)`);
+}
 
-document.addEventListener('DOMContentLoaded', function(size) {
-    let i = 0
-    while (i < size) {
-        let count = 1
-        box = document.createElement('div');
-        container.appendChild(box);
-        count++;
+function drawGrid(size) {
+    let squareSize = Math.pow(size, 2);
+    let i = 0;
+    while (i < squareSize) {    
+        let gridElement = document.createElement('div');
+        gridElement.className = 'grid-item';
+        container.appendChild(gridElement);
         i++;
     }
-});
+}
+
+function defaultGrid() {
+    setGridSize(16);
+    drawGrid(16);
+}
+defaultGrid();
+console.log(container);

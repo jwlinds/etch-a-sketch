@@ -3,11 +3,19 @@ body {
   border-color: aquamarine;
 }
 #container {
-  border: 1em;
+  display: grid;
+  max-width: 500px;
+  min-height: 500px;
+  margin: 2rem auto;
+  border: 2px solid;
   border-color: black;
 }
 
-div {
-  border: 1em;
-  border-color: blueviolet;
+.grid-item {
+  display: grid;
+  height: 1fr;
+  width: 1fr;
+  border: 2px;
+  border-color: slateblue;
+  color: pink;
 }
