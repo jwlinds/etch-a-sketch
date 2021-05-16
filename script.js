@@ -11,6 +11,7 @@ function drawGrid(size) {
     while (i < squareSize) {    
         let gridElement = document.createElement('div');
         gridElement.className = 'grid-item';
+        gridElement.id = i;
         container.appendChild(gridElement);
         i++;
     }
@@ -20,5 +21,11 @@ function defaultGrid() {
     setGridSize(16);
     drawGrid(16);
 }
+
 defaultGrid();
-console.log(container);
+
+document.querySelectorAll('.grid-item').forEach(item => {
+    item.addEventListener('hover', event =>{
+        event.className = 'grid-color';
+    })
+})
