@@ -25,7 +25,8 @@ function defaultGrid() {
 defaultGrid();
 
 document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('hover', event =>{
-        event.className = 'grid-color';
+    item.addEventListener('mouseover', event => {
+        event.style.backgroundColor = "black";
     })
 })
+document.querySelector('#1').style.backgroundColor = 'black';
