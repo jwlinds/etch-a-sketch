@@ -22,11 +22,12 @@ function defaultGrid() {
     drawGrid(16);
 }
 
+function colorGrid(item) {
+    item.target.style.backgroundColor ='black';
+}
+
 defaultGrid();
 
 document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('mouseover', event => {
-        event.style.backgroundColor = "black";
-    })
+    item.addEventListener('mouseover', colorGrid)
 })
-document.querySelector('#1').style.backgroundColor = 'black';
