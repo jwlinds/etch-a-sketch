@@ -23,7 +23,13 @@ function defaultGrid() {
 }
 
 function colorGrid(item) {
-    item.target.style.backgroundColor ='black';
+    item.target.style.backgroundColor = 'black';
+}
+
+function clearGrid() {
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.style.backgroundColor = 'pink';
+    })
 }
 
 defaultGrid();
@@ -31,3 +37,5 @@ defaultGrid();
 document.querySelectorAll('.grid-item').forEach(item => {
     item.addEventListener('mouseover', colorGrid)
 })
+
+document.querySelector('#reset').addEventListener('click', clearGrid);
