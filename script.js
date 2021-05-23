@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 const reset = document.querySelector('#reset');
+const gridItem = document.querySelectorAll('.grid-item');
 
 function setGridSize(size) {
     container.style.gridTemplateColumns = (`repeat(${size}, 1fr)`);
@@ -27,7 +28,7 @@ function colorGrid(item) {
 }
 
 function rebuildGrid() {
-    document.container.removeChild('.grid-item');
+    document.querySelector('#container').removeChild(gridItem);
     let size = prompt('Select a grid size (maximum 100)', '64');
     size = parseInt(size);
     setGridSize(size);
