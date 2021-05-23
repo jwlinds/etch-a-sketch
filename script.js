@@ -26,6 +26,19 @@ function colorGrid(item) {
     item.target.style.backgroundColor = 'black';
 }
 
+function rebuildGrid() {
+    document.container.removeChild('.grid-item');
+    let size = prompt('Select a grid size (maximum 100)', '64');
+    size = parseInt(size);
+    setGridSize(size);
+    drawGrid(size);
+}
+
+function resetGrid() {
+    clearGrid();
+    rebuildGrid();
+}
+
 function clearGrid() {
     document.querySelectorAll('.grid-item').forEach(item => {
         item.style.backgroundColor = 'pink';
@@ -38,4 +51,4 @@ document.querySelectorAll('.grid-item').forEach(item => {
     item.addEventListener('mouseover', colorGrid)
 })
 
-document.querySelector('#reset').addEventListener('click', clearGrid);
+document.querySelector('#reset').addEventListener('click', rebuildGrid);
