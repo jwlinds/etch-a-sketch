@@ -21,35 +21,55 @@ function drawGrid(size) {
 function defaultGrid() {
     setGridSize(16);
     drawGrid(16);
-}
-
-function colorGrid(item) {
-    item.target.style.backgroundColor = 'black';
+    colorGrid();
 }
 
 function rebuildGrid() {
-    document.querySelector('#container').removeChild(gridItem);
     let size = prompt('Select a grid size (maximum 100)', '64');
+    if (size === null) {
+        return;
+    }
     size = parseInt(size);
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     setGridSize(size);
     drawGrid(size);
+    randomGrid();
 }
 
 function resetGrid() {
-    clearGrid();
     rebuildGrid();
 }
 
-function clearGrid() {
+function colorGrid() {
     document.querySelectorAll('.grid-item').forEach(item => {
-        item.style.backgroundColor = 'pink';
+        item.addEventListener('mouseover', event => {
+            event.target.style.backgroundColor = 'black';
+        })
+    })
+}
+
+function randomGrid() {
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.addEventListener('mouseover', event => {
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            let color = `rgb(${ red },${ green },${ blue })`;
+            event.target.style.backgroundColor = color;
+        })
+    })
+}
+
+function gradientGrid() {
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.addEventListener('mouseover',event => {
+            event.target.style.backgroundColor = #ffffff
+        })
     })
 }
 
 defaultGrid();
-
-document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('mouseover', colorGrid)
-})
 
 document.querySelector('#reset').addEventListener('click', rebuildGrid);
