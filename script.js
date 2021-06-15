@@ -65,7 +65,8 @@ function randomGrid() {
 function gradientGrid() {
     document.querySelectorAll('.grid-item').forEach(item => {
         item.addEventListener('mouseover',event => {
-            event.target.style.backgroundColor = #ffffff
+            let currentOpacity = 
+            event.target.style.backgroundColor = `rgba(0, 0, 0, ${0.1 + currentOpacity})`
         })
     })
 }
