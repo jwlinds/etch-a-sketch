@@ -13,7 +13,7 @@
 }
 
 #reset{
-  background-color: slateblue; 
+  background-color: rgba(100,0,100,1); 
 }
 
 .grid-item {
@@ -22,9 +22,9 @@
   width: 1fr;
   border: 1px solid;
   border-color: slategrey;
-  background-color: pink;
+  background-color: rgba(255,255,255,1);
 }
-
+  
 .grid-color {
   background-color: black;
 }
