@@ -9,7 +9,7 @@ function setGridSize(size) {
 function drawGrid(size) {
     let squareSize = Math.pow(size, 2);
     let i = 0;
-    while (i < squareSize) {    
+    while (i < squareSize) {
         let gridElement = document.createElement('div');
         gridElement.className = 'grid-item';
         gridElement.id = `grid${i}`;
@@ -35,7 +35,7 @@ function rebuildGrid() {
     }
     setGridSize(size);
     drawGrid(size);
-    randomGrid();
+    gradientGrid();
 }
 
 function resetGrid() {
@@ -65,10 +65,15 @@ function randomGrid() {
 function gradientGrid() {
     document.querySelectorAll('.grid-item').forEach(item => {
         item.addEventListener('mouseover',event => {
-            let opaque = event.target.getComputedStyle()
-
-            event.target.style.backgroundColor = `rgba(0, 0, 0, ${0.1 + currentOpacity})`
+            let opaque = this.getComputedStyle('background-color');
+            if (opaque.style.backgroundColor(/rgba/)) {
+              let opacity = number(opagque.style.backgroundColor.slice(-4, -1));
+              event.target.style.backgroundColor = `rgba(0, 0, 0, ${0.1 + opacity})`;
+            } else {
+            event.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+          }
         })
+
     })
 }
 
